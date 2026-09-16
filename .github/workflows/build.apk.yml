@@ -35,17 +35,13 @@ jobs:
             autoconf \
             libtool \
             pkg-config \
-            unzip
+            unzip \
+            ant
 
-    - name: Install Buildozer
+    - name: Install Buildozer and Cython
       run: |
         pip install --upgrade pip
-        pip install buildozer Cython==0.29.33
-
-    - name: Accept Android SDK licenses
-      run: |
-        mkdir -p ~/.buildozer/android/platform/android-sdk
-        yes | buildozer android debug || true
+        pip install --upgrade buildozer Cython==0.29.33
 
     - name: Build APK with Buildozer
       run: |
